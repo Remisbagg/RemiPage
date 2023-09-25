@@ -1,0 +1,105 @@
+<?php
+session_start();
+$conexion = mysqli_connect("localhost","root","") or
+die("F");
+mysqli_select_db($conexion,"id19529191_blintech") or
+die("F");
+mysqli_set_charset($conexion,"utf8");
+
+
+ob_start();
+$Ususario=$_SESSION['Usuario'];
+if(!isset($Ususario)){
+    header("location:Login.html");
+
+}
+ob_end_flush();
+?>
+
+<!DOCTYPE html>
+<html style="background-color: Black;" lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/Logo.png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <title>RemiRec</title>
+<!--
+
+TemplateMo 548 Training Studio
+
+https://templatemo.com/tm-548-training-studio
+
+-->
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap_1.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome_1.css">
+
+    <link rel="stylesheet" href="assets/css/styleIn.css">
+
+    </head>
+    
+<body>
+
+<body style="background-color: Black;">
+<table  style="color: white;" class="table table-sm">
+    <th style="text-align:center;" colspan=12>PROVEEDORES</th>
+      <tr>
+        <th scope="col">Codigo</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Contacto</th>
+        <th scope="col">Celular</th>
+        <th scope="col">Direccion</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Critico</th>
+        <th scope="col">Suministro o servicio</th>
+        <th scope="col">Activo</th>
+      </tr>
+    </thead>
+
+
+<?php
+$sql="SELECT * from proveedores ";
+$result=mysqli_query($conexion,$sql);
+
+while($mostrar=mysqli_fetch_array($result)){
+
+?>
+
+    <tbody>
+      <tr style="color: white;">
+        <td><?php echo $mostrar['Codigo'] ?></td>
+        <td><?php echo $mostrar['Nombre'] ?></td>
+        <td><?php echo $mostrar['Contacto'] ?></td>
+        <td><?php echo $mostrar['Celular'] ?></td>
+        <td><?php echo $mostrar['Direccion'] ?></td>
+        <td><?php echo $mostrar['Telefono'] ?></td>
+        <td><?php echo $mostrar['Email'] ?></td>
+        <td><?php echo $mostrar['Critico'] ?></td>
+        <td><?php echo $mostrar['Suministro_o_servicio'] ?></td>
+        <td><?php echo $mostrar['Activo'] ?></td>
+      </tr>
+<?php
+}
+?>
+  </table>
+
+
+<div class="caption">
+    <div class="center">
+        <div class="main-button scroll-to-section">
+            <a href="Principal.php">Volver</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

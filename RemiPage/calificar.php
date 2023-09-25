@@ -1,0 +1,50 @@
+<?php
+$conexion = mysqli_connect("localhost","id19529191_remi","d8Ij*]FOZpFR/-vw") or
+die("F");
+mysqli_select_db($conexion,"id19529191_blintech") or
+die("F");
+mysqli_set_charset($conexion,"UTF8");
+
+if(isset($_POST['Fac'])){
+    $Factura = $_POST['Fac']; 
+}
+if(isset($_POST['Reqc'])){
+    $Reqno = $_POST['Reqc']; 
+}
+if(isset($_POST['Copo'])){
+    $Copo = $_POST['Copo']; 
+}
+
+
+if(isset($_POST['Tie'])){
+    $Tiempo = $_POST['Tie']; 
+}
+
+if(isset($_POST['Ca'])){
+    $Calidad = $_POST['Ca']; 
+}
+
+if(isset($_POST['Serv'])){
+    $Servicio = $_POST['Serv']; 
+}
+
+
+for ($i=0;$i<count(array($Tiempo));$i++)    
+{        
+$Tiempo = $Tiempo[$i];
+} 
+
+for ($i=0;$i<count(array($Calidad));$i++)    
+{       
+$Calidad = $Calidad[$i];
+} 
+
+for ($i=0;$i<count(array($Servicio));$i++)    
+{     
+$Servicio = $Servicio[$i];  
+} 
+
+mysqli_query($conexion,"INSERT INTO calificaciones(Factura_No,Req_No,Cod_provee,T_E,Calidad,Servicio) VALUES ('$Factura','$Reqno','$Copo','$Tiempo','$Calidad','$Servicio')");
+header("location:Principal.php");
+
+?>
