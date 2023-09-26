@@ -1,9 +1,18 @@
 <?php
-$conexion = mysqli_connect("localhost","id19529191_remi","d8Ij*]FOZpFR/-vw") or
-die("F");
-mysqli_select_db($conexion,"id19529191_blintech") or
-die("F");
-mysqli_set_charset($conexion,"UTF8");
+$servername = "remicom-server.mysql.database.azure.com";
+$username = "sjtwfqxgtc";
+$password = "Estudiocolegio12";
+$dbname = "remicom-database";
+
+// Crear conexión
+$conexion = mysqli_connect($servername, $username, $password, $dbname);
+
+// Verificar conexión
+if (!$conexion) {
+  die("La conexión falló: " . mysqli_connect_error());
+}
+
+mysqli_set_charset($conexion,"utf8");
 
 if(isset($_POST['Fac'])){
     $Factura = $_POST['Fac']; 
