@@ -5,12 +5,7 @@ $password = "Estudiocolegio1";
 $dbname = "remi_base";
 
 // Crear conexión
-$conexion = mysqli_init();
-mysqli_ssl_set($conexion, NULL, NULL, "BaltimoreCyberTrustRoot.crt.pem", NULL, NULL);
-
-// Crear conexión segura
-mysqli_real_connect($conexion, $servername, $username, $password, $dbname, 3306, NULL, MYSQLI_CLIENT_SSL);
-
+$conexion = mysqli_connect($servername, $username, $password, $dbname);
 
 // Verificar conexión
 if (!$conexion) {
