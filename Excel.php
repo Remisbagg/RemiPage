@@ -75,6 +75,6 @@ echo '<tr style="text-align: left"><th>Observaciones</th><th colspan=5>'.$rowN['
 echo '<tr style="text-align: left"><th colspan=3>Solicitado Por:</th><th colspan=3>Generado Por:</th></tr>';
 echo '<tr style="text-align: left"><th colspan=3>'.$rowN['Solicitado_por'].'</th><th colspan=3>'.$rowN['Generado_por'].'</th></tr>';
 echo'</table>';
-mysqli_query($conexion,"TRUNCATE o_compra");
+//mysqli_query($conexion,"TRUNCATE o_compra");
 ?>
 <meta charset="utf-8">
