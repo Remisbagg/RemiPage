@@ -1,10 +1,10 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-$servername = "remicom-server.mysql.database.azure.com";
-$username = "sjtwfqxgtc";
-$password = "Estudiocolegio12";
-$dbname = "remicom-database";
+$servername = "remiserver.mysql.database.azure.com";
+$username = "Remisbagg";
+$password = "Estudiocolegio1";
+$dbname = "remi_base";
 
 // Crear conexión
 $conexion = mysqli_connect($servername, $username, $password, $dbname);
